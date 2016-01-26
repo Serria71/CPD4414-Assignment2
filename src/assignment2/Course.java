@@ -19,7 +19,7 @@ public class Course {
         
     }
     //Not 100% sure how to make the method that goes here.
-    public static void(Student student){
+    public static void add(Student student){
         //No idea why this is erroring.
     }
     public static void remove(String id){
