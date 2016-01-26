@@ -29,13 +29,13 @@ public class Course {
         
     }
     public static void get(String id){
-        return Student; //Errors
+        
     }
     public static void get(int position){
-        return Student; //More errors.
+        
     }
     public static void getAll(){
-        return List<Student>; //Even more errors.
+        
     }
     public boolean equals(Object obj){
         return true;
@@ -44,9 +44,9 @@ public class Course {
        return "0";
     }
     public static void getAllByGender(String gender){
-        return Set<Student>; //These errors are getting old.
+        
     }
     public static void getGradeMap(){
-        return Map<String,Set<Student>>; //Yay errors >_>
+        
     }
 }
