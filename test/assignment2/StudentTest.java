@@ -10,9 +10,6 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 import static org.junit.Assert.*;
 
 /**
@@ -221,21 +218,14 @@ public class StudentTest {
      */
     @Test
     public void testToString() {
-        try {
-            System.out.println("toString");
-            Student instance = new Student();
-            instance.name = "name";
-            instance.id = "1";
-            instance.gender = "male";
-            instance.grade = 88;
-            String jsonString = instance.toString();
-            JSONObject result = (JSONObject) new JSONParser().parse(jsonString);
-            JSONObject expResult = (JSONObject) new JSONParser().parse("{\"name\":\"name\",\"id\":\"1\",\"gender\":\"male\",\"grade\":88}");
-            assertEquals(expResult, result);
-        } catch (ParseException ex) {
-            System.err.println("Invalid JSON Format");
-            fail("Invalid JSON Format");
-        }
+        System.out.println("toString");
+        Student instance = new Student();
+        instance.name = "Bill Smith";
+        instance.id = "c0123456";
+        instance.gender = "male";
+        instance.grade = 89.3;
+        String expResult = "{ \"name\" : \"" + "Bill Smith" + "\", \"id\" : \"" + "c0123456" + "\", \"gender\" : \"" + "male" + "\", \"grade\" : " + 89.3 + " }";
+        boolean result = instance.equals(instance);
+        assertEquals(expResult, result);
     }
-    
 }
