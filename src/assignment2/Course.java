@@ -6,6 +6,8 @@
 package assignment2;
 
 import java.util.ArrayList;
+import static java.util.Collections.list;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -22,19 +24,28 @@ public class Course extends Student{
     public void add(Student student){
         sList.add(new Student());
     }
-    public void remove(String id){
-        sList.remove(id);
+    public void remove(String id){ 
+        Iterator<Student> it = sList.iterator();
+        while(it.hasNext())
+        {
+            Student ce = it.next();
+            if(ce.getId() == id)
+            {
+                it.remove();
+            }
+    } 
+        //sList.remove(id);
     }
     public void insert(Student student, int position){
+         sList.add(position, new Student());
+    }
+    public static void get(String id){
         
     }
-    public void get(String id){
+    public static void get(int position){
         
     }
-    public void get(int position){
-        
-    }
-    public void getAll(){
+    public static void getAll(){
         
     }
     public boolean equals(Object obj){
