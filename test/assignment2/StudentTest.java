@@ -10,6 +10,9 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import static org.junit.Assert.*;
 
 /**
@@ -159,12 +162,55 @@ public class StudentTest {
      * Test of equals method, of class Student.
      */
     @Test
-    public void testEquals() {
-        System.out.println("equals");
-        Object obj = null;
+    public void testEqualsFalse() {
+        System.out.println("equalsFalse");
+        Student object = null;
         Student instance = new Student();
         boolean expResult = false;
-        boolean result = instance.equals(obj);
+        boolean result = instance.equals(object);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+    
+    @Test
+    public void testEqualsTrue() {
+        System.out.println("equalsTrue");
+        Student object = new Student();
+        Student instance = new Student();
+        boolean expResult = true;
+        boolean result = instance.equals(object);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+    @Test
+    public void testEqualsWrongID() {
+        System.out.println("equalsWrongID");
+        Student object = new Student();
+        object.name = "name";
+        object.id = "1";
+        Student instance = new Student();
+        instance.name = "name";
+        instance.id = "2";
+        boolean expResult = false;
+        boolean result = instance.equals(object);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+    @Test
+    public void testEqualsWrongName() {
+        System.out.println("equalsWrongName");
+        Student object = new Student();
+        object.name = "wrong";
+        object.id = "1";
+        
+        Student instance = new Student();
+        instance.name = "name";
+        instance.id = "1";
+        boolean expResult = false;
+        boolean result = instance.equals(object);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -175,13 +221,21 @@ public class StudentTest {
      */
     @Test
     public void testToString() {
-        System.out.println("toString");
-        Student instance = new Student();
-        String expResult = "";
-        String result = instance.toString();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        try {
+            System.out.println("toString");
+            Student instance = new Student();
+            instance.name = "name";
+            instance.id = "1";
+            instance.gender = "male";
+            instance.grade = 88;
+            String jsonString = instance.toString();
+            JSONObject result = (JSONObject) new JSONParser().parse(jsonString);
+            JSONObject expResult = (JSONObject) new JSONParser().parse("{\"name\":\"name\",\"id\":\"1\",\"gender\":\"male\",\"grade\":88}");
+            assertEquals(expResult, result);
+        } catch (ParseException ex) {
+            System.err.println("Invalid JSON Format");
+            fail("Invalid JSON Format");
+        }
     }
     
 }
