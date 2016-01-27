@@ -15,40 +15,65 @@ public class Student {
     public String gender;
     public double grade;
     
-    public static void Student(){
-        
+    public void Student(){
+        this.name = "";
+        this.id = "";
+        this.gender = "";
+        this.grade = 0;
     }
-    public static void Student(String name, String id, String gender, double grade){
-        
+    public void Student(String name, String id, String gender, double grade){
+        this.name = name;
+        this.id = id;
+        this.gender = gender;
+        this.grade = grade;
     }
-    public static void getName(){
-        
+    public String getName() {
+        return name;
     }
-    public static void getId(){
-        
+
+    public void setName(String name) {
+        this.name = name;
     }
-    public static void getGender(){
-        
+
+    public String getId() {
+        return id;
     }
-    public static void getGrade(){
-        
+
+    public void setId(String id) {
+        this.id = id;
     }
-    public static void setName(String name){
-        
+
+    public String getGender() {
+        return gender;
     }
-    public static void setId(String id){
-        
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
-    public static void setGender(String gender){
-        
+
+    public double getGrade() {
+        return grade;
     }
-    public static void setGrade (String grade){
-    
+
+    public void setGrade(String grade) {
+        double value = Double.parseDouble(grade);
+        this.grade = value;
     }
     public boolean equals(Object obj){
+        if(!(obj instanceof Student)){
+            return false;
+        } else if((obj instanceof Student) && (name.equals(name)) && (id.equals(id))){
+            return true;
+        } else if((obj instanceof Student) && (name.equals(name)) && (!id.equals(id))) {
+            return false;
+        } else if((obj instanceof Student) && (!name.equals(name)) && (id.equals(id))){
+            return false;
+        } else if((obj instanceof Student) && (!name.equals(name)) && (!id.equals(id))){
+            return false;
+        }
         return true;
     }
     public String toString(){
-       return "0";
+       return "{ \"name\" : \"" + name + "\", \"id\" : \"" + id + "\", \"gender\" : \"" + gender + "\", \"grade\" : " + grade + " }";
     }
 }

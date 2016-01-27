@@ -12,41 +12,41 @@ import java.util.List;
  *
  * @author c0640780
  */
-public class Course {
-    List<Student> plist = new ArrayList<>();
+public class Course extends Student{
+    List<Student> sList = new ArrayList<>();
     
     public static void Course(){
         
     }
     //Not 100% sure how to make the method that goes here.
-    public static void add(Student student){
-        //No idea why this is erroring.
+    public void add(Student student){
+        sList.add(new Student());
     }
-    public static void remove(String id){
+    public void remove(String id){
+        sList.remove(id);
+    }
+    public void insert(Student student, int position){
         
     }
-    public static void insert(Student student, int position){
+    public void get(String id){
         
     }
-    public static void get(String id){
+    public void get(int position){
         
     }
-    public static void get(int position){
-        
-    }
-    public static void getAll(){
+    public void getAll(){
         
     }
     public boolean equals(Object obj){
-        return true;
+        return false;
     }
     public String toString(){
        return "0";
     }
-    public static void getAllByGender(String gender){
+    public void getAllByGender(String gender){
         
     }
-    public static void getGradeMap(){
+    public void getGradeMap(){
         
     }
 }
